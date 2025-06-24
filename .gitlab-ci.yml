@@ -1,0 +1,52 @@
+stages:
+  - testing # Запуск тестов
+  - reports # Создание отчетов
+  - deploy # Публикация отчета на gitlab pages
+
+docker_job: # Название job
+  stage: testing # Первый stage, который нужно выполнить
+  image: gradle:8.10.2-jdk17 # Образ, который будет использоваться для запуска тестов.
+  before_script:
+    - gradle clean test # Очистка данных перед тестами
+  script:
+    - gradle allureReport
+  allow_failure: true # Это позволит нам продолжить выполнение пайплайна в случае, если тесты упали.
+  artifacts: # Сущность, с помощью которой, мы сохраним результат тестирования.
+    when: always # Сохранять всегда
+    paths:
+      - app/build/allure-results
+    expire_in: 1 day # Он будет удален через день. Нет смысла хранить его в течение длительного срока.
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - when: always
+
+allure_job: # Название job
+  stage: reports # второй stage, который будет выполнен
+  image: frankescobar/allure-docker-service # Указываем раннеру использовать образ с allure. В нем мы будем генерировать отчет.
+  script:
+    - allure generate --clean app/build/allure-results -o app/build/allure-reports # Генерируем отчет из ./allure-results внутрь папки ./allure-report
+  artifacts:
+    paths:
+      - app/build/allure-results # Примонтируем две этих директории для получения результатов тестирования и генерации отчетов соответственно
+      # - build/allure-result
+      - app/build/allure-reports
+      # - build/allure-report
+    expire_in: 1 day
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - when: always
+
+pages: # Названием этой job говорим гитлабу, чтобы захостил результат у себя в pages
+  stage: deploy # Четвертый stage, который будет выполнен
+  script:
+    - mkdir -p public # Создаем папку public. По умолчанию гитлаб хостит в gitlab pages только из папки public
+    - mv -f app/build/allure-reports/* public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - when: always

@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '8.+'
+    id "io.qameta.allure" version '2.+'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = '2.+'
+def aspectJVersion = '1.+'
+def restAssuredVersion = '5.+'
+def jacksonVersion = '2.+'
+def datafakerVersion = '2.+'
+def jsonSchemaValidatorVersion = '5.+'
+def awaitilityVersion = '4.+'
+def postgresqlVersion = '42.+'
+def commonsVersion = '2.+'
+def apacheCommonsVersion = '3.+'
+def kafkaVersion = '3.+'
+
+configurations {
+    agent {
+        canBeResolved = true
+        canBeConsumed = true
+    }
+}
+
+dependencies {
+    agent "org.aspectj:aspectjweaver:$aspectJVersion"
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
+    implementation("io.rest-assured:rest-assured:$restAssuredVersion") {
+        exclude group: "commons-codec", module: "commons-codec"
+    }
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "net.datafaker:datafaker:$datafakerVersion"
+    implementation "io.rest-assured:json-schema-validator:$jsonSchemaValidatorVersion"
+    implementation group: 'org.awaitility', name: 'awaitility', version: awaitilityVersion
+    implementation "org.postgresql:postgresql:$postgresqlVersion"
+    implementation group: 'commons-io', name: 'commons-io', version: commonsVersion
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: apacheCommonsVersion
+    implementation group: 'org.apache.kafka', name: 'kafka_2.13', version: kafkaVersion
+    implementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.29.1'
+
+}
+
+test {
+    testLogging.showStandardStreams = true
+    useJUnitPlatform()
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

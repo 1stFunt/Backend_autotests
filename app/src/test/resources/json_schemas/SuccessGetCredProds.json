@@ -1,0 +1,14 @@
+{
+  "credits": [
+    {
+      "id": "String",
+      "creditType": "String",
+      "isActive": "Boolean",
+      "creationDate": "String",
+      "constantRate": "Number",
+      "minSum": "Number",
+      "maxSum": "Number",
+      "currencyCode": "String"
+    }
+    ]
+}

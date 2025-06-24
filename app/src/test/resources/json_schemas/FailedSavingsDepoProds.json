@@ -1,0 +1,8 @@
+{
+  "interestRate": "must not be null",
+  "endDate": "must not be null",
+  "amountMin": "must not be null",
+  "name": "must not be blank",
+  "currencyId": "must not be null",
+  "startDate": "must not be null"
+}

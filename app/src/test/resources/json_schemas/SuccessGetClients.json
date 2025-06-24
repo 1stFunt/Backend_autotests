@@ -1,0 +1,17 @@
+{
+  "count": "number",
+  "page": "number",
+  "clients": [
+    {
+      "first_name": "string",
+      "last_name": "string",
+      "middle_name": "string",
+      "mobile_phone": "string",
+      "birth_date": "string",
+      "passport_series": "string",
+      "passport_number": "string",
+      "registration_date": "string",
+      "status": "string"
+    }
+  ]
+}

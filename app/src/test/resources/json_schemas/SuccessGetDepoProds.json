@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "startDate": { "type": "string" },
+          "endDate": { "type": "string" },
+          "currency": { "type": "string" },
+          "interestRate": { "type": ["number", "string"] },
+          "earlyTerminationRate": { "type": ["number", "string"] },
+          "amountMin": { "type": ["number", "string"] },
+          "amountMax": { "type": ["number", "string"] },
+          "durationMin": { "type": "number" },
+          "durationMax": { "type": "number" },
+          "capitalization": { "type": "string" },
+          "withdrawal": { "type": "string" },
+          "replenishment": { "type": "string" }
+        }
+      },
+      "minItems": 0
+    },
+    "total": { "type": "number" },
+    "page": { "type": "number" },
+    "limit": { "type": "number" },
+    "sort": {
+      "type": "object",
+      "properties": {
+        "field": { "type": "string" },
+        "order": { "type": "string" }
+      },
+      "required": ["field", "order"]
+    }
+  },
+  "required": ["data", "total", "page", "limit", "sort"]
+}

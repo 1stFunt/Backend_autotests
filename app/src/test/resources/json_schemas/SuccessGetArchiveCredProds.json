@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "credits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "creditType": { "type": "string" },
+          "isActive": { "type": "boolean" },
+          "creationDate": { "type": "string" },
+          "constantRate": { "type": "number" },
+          "maxSum": { "type": "number" },
+          "minSum": { "type": "number" },
+          "currencyCode": { "type": "string" },
+          "inArchive": { "type": "boolean" }
+        },
+        "required": ["id", "creditType", "isActive", "creationDate", "constantRate", "maxSum", "minSum", "currencyCode", "inArchive"]
+      }
+    }
+  },
+  "required": ["credits"]
+}

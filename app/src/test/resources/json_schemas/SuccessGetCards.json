@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": "string",
+      "productName": "string",
+      "description": "string",
+      "cardType": "string",
+      "isPlastic": "boolean",
+      "paymentSystem": "string",
+      "cardDuration": "string",
+      "issuePrice": "number",
+      "monthPrice": "number",
+      "dayStandardLimit": "number",
+      "weekStandardLimit": "number",
+      "isArchived": "boolean",
+      "availableBefore": "string",
+      "cardColor": "string",
+      "creationDate": "string"
+    }
+  ],
+  "total": "number",
+  "page": "number",
+  "limit": "number"
+}

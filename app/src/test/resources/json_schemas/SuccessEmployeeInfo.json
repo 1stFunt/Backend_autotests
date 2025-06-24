@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "createdAt": {
+      "type": "string",
+      "oneOf": [
+        { "format": "date-time" },
+        { "pattern": "^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[0-2])\\.\\d{4}$" }
+      ]
+    }
+  },
+  "required": ["createdAt"],
+  "additionalProperties": false
+}

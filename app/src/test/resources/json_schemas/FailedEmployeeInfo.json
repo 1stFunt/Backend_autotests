@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "errorMessage": { "type": "string" },
+    "message": { "type": "string" },
+    "error": { "type": "string" }
+  },
+  "anyOf": [
+    { "required": ["errorMessage"] },
+    { "required": ["message"] },
+    { "required": ["error"] }
+  ]
+}

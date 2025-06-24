@@ -1,0 +1,21 @@
+{
+  "credits": [
+    {
+      "id": "string",
+      "creditType": "string",
+      "mainDebt": "number",
+      "currencyCode": "string",
+      "isActive": "boolean",
+      "agreementDate": "string",
+      "terminationDate": "string",
+      "amountPaid": "number",
+      "loanBalance": "number",
+      "amountApr": "number",
+      "debt": "number",
+      "paymentAmount": "number",
+      "payDate": "number",
+      "accountNumber": "string",
+      "agreementNumber": "string"
+    }
+  ]
+}

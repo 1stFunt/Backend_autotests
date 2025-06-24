@@ -1,0 +1,19 @@
+{
+  "lastName": "string",
+  "firstName": "string",
+  "middleName": "string",
+  "birthDate": "string",
+  "mobilePhone": "string",
+  "email": "string",
+  "registrationDate": "string",
+  "securityAnswer": "string",
+  "passportSeries": "string",
+  "passportNumber": "string",
+  "issuanceDate": "string",
+  "expiryDate": "string",
+  "issuedBy": "string",
+  "departmentCode": "string",
+  "addresses": [],
+  "status": "string",
+  "documents": {}
+}

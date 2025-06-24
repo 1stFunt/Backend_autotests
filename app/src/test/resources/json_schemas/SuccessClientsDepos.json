@@ -1,0 +1,23 @@
+{
+  "deposits": [
+    {
+      "id": "string",
+      "name": "string",
+      "balance": "number",
+      "currencyCode": "RUB",
+      "isActive": "boolean",
+      "startDate": "string",
+      "endDate": "string",
+      "initialAmount": "number",
+      "type": "string",
+      "interestRate": "number",
+      "capitalization": "string",
+      "depositInfo": "string",
+      "withdraw": "boolean",
+      "autoRenewal": "boolean",
+      "replenishment": "string",
+      "accountNumber": "string",
+      "agreementNumber": "string"
+    }
+  ]
+}
