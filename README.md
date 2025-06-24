@@ -1,8 +1,8 @@
 ## Описание:
 Образец некоторых моих автотестов, демонстрирующий лаконичную и компактную структуру.  
-В целях конфиденциальности приведён не полный набор тестовых сценариев, а также использованы фейковые данные и нейтральные названия.
+Для сохранения конфиденциальности показан не полный набор тестовых сценариев, а также использованы фейковые данные и нейтральные названия.
 
-- [TermDepositProductTest](https://github.com/1stFunt/API_autotests/blob/main/app/src/test/java/depositService/TermDepositProductTest.java) - один из лучших примеров оформления тестового класса
+- [TermDepositProductTest](https://github.com/1stFunt/Backend_autotests/blob/main/app/src/test/java/depositService/TermDepositProductTest.java) - один из лучших примеров оформления тестового класса
 
 P.S. Структуру можно дополнительно улучшить за счёт использования `Enum` для эндпоинтов, а также вместо обычного `JDBC` и классов мапперов использовать `Spring JDBC` с `JdbcTemplate` и интерфейсом `RowMapper`.
 
